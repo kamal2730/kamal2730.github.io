@@ -8,11 +8,14 @@ export default defineConfig({
     react(),
     {
       name: 'html-transform',
-      transformIndexHtml(html) {
-        return html.replace(
-          /<title>(.*?)<\/title>/,
-          '<title>TellATale</title>'
-        )
+      transformIndexHtml: {
+        enforce: 'pre',
+        transform(html) {
+          return html.replace(
+            /<title>(.*?)<\/title>/,
+            '<title>TellATale</title>'
+          )
+        }
       }
     }
   ],
@@ -20,6 +23,13 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+    },
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+      },
     },
   },
 })
