@@ -31,7 +31,7 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-xl font-bold text-primary">
+              <Link to="/" className="text-xl font-bold text-gray-900">
                 TellATale
               </Link>
             </div>
